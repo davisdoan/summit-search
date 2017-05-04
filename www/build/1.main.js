@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 261:
+/***/ 267:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_hike__ = __webpack_require__(262);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchHikeModule", function() { return SearchHikeModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lobby__ = __webpack_require__(272);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LobbyModule", function() { return LobbyModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var SearchHikeModule = (function () {
-    function SearchHikeModule() {
+var LobbyModule = (function () {
+    function LobbyModule() {
     }
-    return SearchHikeModule;
+    return LobbyModule;
 }());
-SearchHikeModule = __decorate([
+LobbyModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__search_hike__["a" /* SearchHike */],
+            __WEBPACK_IMPORTED_MODULE_2__lobby__["a" /* Lobby */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__search_hike__["a" /* SearchHike */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__lobby__["a" /* Lobby */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__search_hike__["a" /* SearchHike */]
+            __WEBPACK_IMPORTED_MODULE_2__lobby__["a" /* Lobby */]
         ]
     })
-], SearchHikeModule);
+], LobbyModule);
 
-//# sourceMappingURL=search-hike.module.js.map
+//# sourceMappingURL=lobby.module.js.map
 
 /***/ }),
 
-/***/ 262:
+/***/ 272:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(91);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchHike; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Lobby; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60,30 +60,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the SearchHike page.
+ * Generated class for the Lobby page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var SearchHike = (function () {
-    function SearchHike(navCtrl, navParams) {
+var Lobby = (function () {
+    function Lobby(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
     }
-    SearchHike.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad SearchHike');
+    Lobby.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad Lobby');
     };
-    return SearchHike;
+    return Lobby;
 }());
-SearchHike = __decorate([
+Lobby = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-search-hike',template:/*ion-inline-start:"/home/ubuntu/workspace/summit-search/src/pages/search-hike/search-hike.html"*/'<!--\n  Generated template for the SearchHike page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>SearchHike</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/ubuntu/workspace/summit-search/src/pages/search-hike/search-hike.html"*/,
+        selector: 'page-lobby',template:/*ion-inline-start:"/home/ubuntu/workspace/summit-search/src/pages/lobby/lobby.html"*/'<!--\n  Generated template for the Lobby page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Lobby</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/ubuntu/workspace/summit-search/src/pages/lobby/lobby.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
-], SearchHike);
+], Lobby);
 
-//# sourceMappingURL=search-hike.js.map
+//# sourceMappingURL=lobby.js.map
 
 /***/ })
 
