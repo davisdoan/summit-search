@@ -11,8 +11,24 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AppUser {
 
+  baseUrl: string = "https://sp-17-davis-jbrownssf.c9users.io:8080/api";
+  path: string ="/AppUsers";
+
   constructor(public http: Http) {
     console.log('Hello AppUser Provider');
+  }
+  
+  register(newUserData){
+    return this.http.post(
+      this.baseUrl + this.path,
+      newUserData
+    );
+  }
+  
+  login(oldUserData){
+    return this.http.post(
+      this.baseUrl + this.path + "/login", oldUserData  
+    );
   }
 
 }
