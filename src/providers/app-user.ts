@@ -30,5 +30,13 @@ export class AppUser {
       this.baseUrl + this.path + "/login", oldUserData  
     );
   }
+  
+  logout(token){
+    return this.http.post(
+      this.baseUrl + this.path + '/logout' + 
+      '?access_token=' + token,
+      {}
+    );
+  }
 
 }

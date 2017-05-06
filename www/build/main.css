@@ -1,3 +1,7 @@
+ion-content {
+  background-image: url("../assets/mountain.jpg");
+}
+
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -24664,4 +24668,10 @@ ion-navbar.toolbar {
   .wp .modal-wrapper > .ion-page > ion-header > ion-content.statusbar-padding:first-child[padding-top] .scroll-content {
     padding-top: calc(16px + 20px);
   }
+}
+
+page-search-hike .spinner-container {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
 }

@@ -10,26 +10,26 @@ import { Login } from '../pages/login/login';
 import { Register } from '../pages/register/register';
 import { Landing } from '../pages/landing/landing';
 import { Lobby } from '../pages/lobby/lobby';
+import { Hikes } from '../pages/hikes/hikes';
+import { HikeDetails } from '../pages/hike-details/hike-details';
+import { SearchHike } from '../pages/search-hike/search-hike';
 
 import { AppUser } from '../providers/app-user';
+import { Data } from '../providers/data';
 
 let injections: any[] = [
   MyApp,
   Landing,
   Login,
   Lobby,
-  Register
-  ]
+  Register,
+  Hikes,
+  SearchHike,
+  HikeDetails
+  ];
 
 @NgModule({
-  declarations: [
-    MyApp,
-    Register,
-    Login,
-    Landing,
-    Lobby,
-    Register
-  ],
+  declarations: injections,
   imports: [
     BrowserModule,
     HttpModule,
@@ -41,7 +41,8 @@ let injections: any[] = [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AppUser
+    AppUser,
+    Data
   ]
 })
 export class AppModule {}

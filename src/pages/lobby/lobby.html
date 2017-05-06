@@ -8,11 +8,16 @@
 
   <ion-navbar>
     <ion-title>Lobby</ion-title>
+    <ion-buttons end side="primary">
+      <button ion-button icon-only (click)="toLogOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
+  
 </ion-header>
 
 
 <ion-content padding>
-
+  <button ion-button (click)="toSearch()" text-center >Find Hikes</button>
 </ion-content>

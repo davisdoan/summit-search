@@ -14,5 +14,15 @@
 
 
 <ion-content padding>
-
+  
+  <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+  
+  <ion-list>
+    <ion-item *ngFor="let hike of hikes" (click)="viewItem(hike)">
+      {{hike.hikeName}}
+    </ion-item>
+  </ion-list>
 </ion-content>
