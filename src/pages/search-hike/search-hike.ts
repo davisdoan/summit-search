@@ -14,15 +14,14 @@ import { Grabhikes } from '../../providers/grabhikes';
  * on Ionic pages and navigation.
  */
  
- 
-let hikeList = []; 
+let hikeList = [];
+let stringyList = [];
 @IonicPage()
 @Component({
   selector: 'page-search-hike',
   templateUrl: 'search-hike.html',
 })
 export class SearchHike {
-  
   searchTerm: string = '';
   searchControl: FormControl;
   hikes: any;
@@ -35,33 +34,26 @@ export class SearchHike {
     public dataService: Data,
     public hikeGrabber: Grabhikes
     ) {
-      
-      hikeGrabber.getHikes('TIJW9U3qLlE0QZyB0BEKe8CslBtAxFhHNHzWmosfqW9ttgNwfmo8mUMIseKx9Kph')
-      .map(res => res.json())
-      .subscribe(res => {
-      hikeList = res;
-      for( let hikes of hikeList) {
-      console.log("hike list : " + hikeList[0]);
-      console.log("hike list 1: " + hikeList[hikes.hikeName]);
-      console.log("this is hike is: " + hikes.hikeName);
-      }
-      }, error => {
-           alert("warning");
-         }
-      );
-      
-      
       this.searchControl = new FormControl();
-      this.setFilteredItems();
-      //console.log("this worked" + dataService.getHikes('TIJW9U3qLlE0QZyB0BEKe8CslBtAxFhHNHzWmosfqW9ttgNwfmo8mUMIseKx9Kph'));
-  }
-
-  ionViewDidLoad() {
+      hikeGrabber.getHikes('TIJW9U3qLlE0QZyB0BEKe8CslBtAxFhHNHzWmosfqW9ttgNwfmo8mUMIseKx9Kph')
+      .map(res => res.json()) //this line takes the response from the server (which is in json stringified form) and turns it into normal json. --John
+      .subscribe(res => { //this res is a derivative of the res.json() --John
+        hikeList = res;
+        
+      console.log(hikeList);
+        
       this.setFilteredItems();
       this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
         this.searching = false;
         this.setFilteredItems();
       });
+      }, error => {
+           alert("warning");
+         }
+      );
+  }
+
+  ionViewDidLoad() {
     console.log('ionViewDidLoad SearchHike');
   }
   
@@ -70,7 +62,7 @@ export class SearchHike {
   }
   
   setFilteredItems(){
-    this.hikes = this.dataService.filterItems(this.searchTerm);
+    this.hikes = this.dataService.filterItems(hikeList,this.searchTerm);
   }
   
   viewItem(item){

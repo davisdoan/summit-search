@@ -20,7 +20,7 @@ export class Data {
     public storage: Storage
     ) {
     
-    console.log(this.getHikes('TIJW9U3qLlE0QZyB0BEKe8CslBtAxFhHNHzWmosfqW9ttgNwfmo8mUMIseKx9Kph'));
+    //console.log("data provider works" + this.getHikes('TIJW9U3qLlE0QZyB0BEKe8CslBtAxFhHNHzWmosfqW9ttgNwfmo8mUMIseKx9Kph'));
     //this.hikes = this.getHikes('TIJW9U3qLlE0QZyB0BEKe8CslBtAxFhHNHzWmosfqW9ttgNwfmo8mUMIseKx9Kph');
     this.hikes = [
                 { hikeName: 'Mt.Everest',
@@ -49,11 +49,14 @@ export class Data {
                   
                 }
       ]
+      
+      
     console.log('Hello Data Provider' + this.getHikes('TIJW9U3qLlE0QZyB0BEKe8CslBtAxFhHNHzWmosfqW9ttgNwfmo8mUMIseKx9Kph'));
   }
   
-  filterItems(searchTerm){
-    return this.hikes.filter((item) => {
+  filterItems(list, searchTerm){
+    console.log( " filtering " + list);
+    return list.filter((item) => {
       return item.hikeName.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
     });
   }
