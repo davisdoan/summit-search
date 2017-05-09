@@ -5,6 +5,8 @@ import { Data } from '../../providers/data';
 import { HikeDetails } from '../hike-details/hike-details';
 import 'rxjs/add/operator/debounceTime';
 
+import { Grabhikes } from '../../providers/grabhikes';
+
 /**
  * Generated class for the SearchHike page.
  *
@@ -12,6 +14,8 @@ import 'rxjs/add/operator/debounceTime';
  * on Ionic pages and navigation.
  */
  
+ 
+let hikeList = []; 
 @IonicPage()
 @Component({
   selector: 'page-search-hike',
@@ -22,16 +26,34 @@ export class SearchHike {
   searchTerm: string = '';
   searchControl: FormControl;
   hikes: any;
+  hikers: any = [];
   searching: any = false;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public dataService: Data
+    public dataService: Data,
+    public hikeGrabber: Grabhikes
     ) {
+      
+      hikeGrabber.getHikes('TIJW9U3qLlE0QZyB0BEKe8CslBtAxFhHNHzWmosfqW9ttgNwfmo8mUMIseKx9Kph')
+      .map(res => res.json())
+      .subscribe(res => {
+      hikeList = res;
+      for( let hikes of hikeList) {
+      console.log("hike list : " + hikeList[0]);
+      console.log("hike list 1: " + hikeList[hikes.hikeName]);
+      console.log("this is hike is: " + hikes.hikeName);
+      }
+      }, error => {
+           alert("warning");
+         }
+      );
+      
       
       this.searchControl = new FormControl();
       this.setFilteredItems();
+      //console.log("this worked" + dataService.getHikes('TIJW9U3qLlE0QZyB0BEKe8CslBtAxFhHNHzWmosfqW9ttgNwfmo8mUMIseKx9Kph'));
   }
 
   ionViewDidLoad() {

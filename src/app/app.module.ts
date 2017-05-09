@@ -19,6 +19,7 @@ import { SearchHike } from '../pages/search-hike/search-hike';
 import { IonicStorageModule } from '@ionic/storage';
 import { AppUser } from '../providers/app-user';
 import { Data } from '../providers/data';
+import { Grabhikes } from '../providers/grabhikes';
 
 let injections: any[] = [
   MyApp,
@@ -46,7 +47,8 @@ let injections: any[] = [
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AppUser,
-    Data
+    Data,
+    Grabhikes
   ]
 })
 export class AppModule {}

@@ -18,7 +18,7 @@ import { Data } from '../../providers/data';
 })
 export class Lobby {
 
-  public favorites = [1, 2, 3];
+  public items = [1, 2, 3];
 
   constructor(
     public navCtrl: NavController, 
@@ -29,7 +29,7 @@ export class Lobby {
     ) {
       this.dataService.getData().then((favorites) => {
       if(favorites) {
-        this.favorites = JSON.parse(favorites);
+        this.items = JSON.parse(favorites);
       }
     });
       

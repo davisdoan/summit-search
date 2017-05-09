@@ -12,13 +12,16 @@ import { Storage } from '@ionic/storage';
 */
 @Injectable()
 export class Data {
-  
+  baseUrl: string = "https://sp-17-davis-jbrownssf.c9users.io:8080/api";
+  path: string ="/AppUsers";
   hikes: any;
   constructor(
     public http: Http,
     public storage: Storage
     ) {
     
+    console.log(this.getHikes('TIJW9U3qLlE0QZyB0BEKe8CslBtAxFhHNHzWmosfqW9ttgNwfmo8mUMIseKx9Kph'));
+    //this.hikes = this.getHikes('TIJW9U3qLlE0QZyB0BEKe8CslBtAxFhHNHzWmosfqW9ttgNwfmo8mUMIseKx9Kph');
     this.hikes = [
                 { hikeName: 'Mt.Everest',
                   hikeElevation: '29,029 feet',
@@ -46,7 +49,7 @@ export class Data {
                   
                 }
       ]
-    console.log('Hello Data Provider');
+    console.log('Hello Data Provider' + this.getHikes('TIJW9U3qLlE0QZyB0BEKe8CslBtAxFhHNHzWmosfqW9ttgNwfmo8mUMIseKx9Kph'));
   }
   
   filterItems(searchTerm){
@@ -60,8 +63,15 @@ export class Data {
   }
   
   save(data){
-    let newData = JSON.stringify(data);
+    let newData = JSON.stringify("test");
     this.storage.set('favorites', newData);
+  }
+  
+   getHikes(token){
+    return this.http.get(
+      this.baseUrl + '/hikes/' + '?access_token=' + token, 
+      {}
+      );
   }
 
 }

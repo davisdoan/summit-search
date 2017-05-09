@@ -52,6 +52,7 @@ export class HikeDetails {
   saveHike(item){
     // save hike to list
     //this.hikes.push(item);
+   
     this.dataService.save(this.navParams.get('item').hikeName);
     console.log("save button works for : " + this.hikeName);
     this.navCtrl.setRoot(Lobby);
