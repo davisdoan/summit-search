@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+import { Storage } from '@ionic/storage';
+
 /*
   Generated class for the Data provider.
 
@@ -12,7 +14,10 @@ import 'rxjs/add/operator/map';
 export class Data {
   
   hikes: any;
-  constructor(public http: Http) {
+  constructor(
+    public http: Http,
+    public storage: Storage
+    ) {
     
     this.hikes = [
                 { hikeName: 'Mt.Everest',
@@ -27,17 +32,36 @@ export class Data {
                   hikeWeather: '43 F',
                   hikeImageUrl: 'https://i.imgur.com/ZjdoIhO.jpg'
                 },
-                { hikeName: 'Havasupai'},
-                { hikeName: 'Mt.Whitney'}
+                { hikeName: 'Havasupai',
+                  hikeElevation: '2800 feet',
+                  hikeDistance: '10 Miles',
+                  hikeWeather: '84 F',
+                  hikeImageUrl: 'https://i.imgur.com/D0XOm3G.jpg'
+                },
+                { hikeName: 'Mt.Whitney',
+                  hikeElevation: '14,505 feet',
+                  hikeDistance: '22 Miles',
+                  hikeWeather: '33 F',
+                  hikeImageUrl: 'https://i.imgur.com/uwziYGV.jpg'
+                  
+                }
       ]
     console.log('Hello Data Provider');
   }
   
   filterItems(searchTerm){
-    
     return this.hikes.filter((item) => {
       return item.hikeName.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
     });
+  }
+  
+  getData(){
+    return this.storage.get('favorites');
+  }
+  
+  save(data){
+    let newData = JSON.stringify(data);
+    this.storage.set('favorites', newData);
   }
 
 }

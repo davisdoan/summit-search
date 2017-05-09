@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
+import { Storage } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { Login } from '../pages/login/login';
@@ -14,6 +15,8 @@ import { Hikes } from '../pages/hikes/hikes';
 import { HikeDetails } from '../pages/hike-details/hike-details';
 import { SearchHike } from '../pages/search-hike/search-hike';
 
+
+import { IonicStorageModule } from '@ionic/storage';
 import { AppUser } from '../providers/app-user';
 import { Data } from '../providers/data';
 
@@ -33,7 +36,8 @@ let injections: any[] = [
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: injections,

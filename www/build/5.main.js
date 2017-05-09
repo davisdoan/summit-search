@@ -1,14 +1,14 @@
 webpackJsonp([5],{
 
-/***/ 269:
+/***/ 281:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__landing__ = __webpack_require__(48);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LandingModule", function() { return LandingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__hikes__ = __webpack_require__(205);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HikesModule", function() { return HikesModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,26 +18,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LandingModule = (function () {
-    function LandingModule() {
+var HikesModule = (function () {
+    function HikesModule() {
     }
-    return LandingModule;
+    return HikesModule;
 }());
-LandingModule = __decorate([
+HikesModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__landing__["a" /* Landing */],
+            __WEBPACK_IMPORTED_MODULE_2__hikes__["a" /* Hikes */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__landing__["a" /* Landing */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__hikes__["a" /* Hikes */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__landing__["a" /* Landing */]
+            __WEBPACK_IMPORTED_MODULE_2__hikes__["a" /* Hikes */]
         ]
     })
-], LandingModule);
+], HikesModule);
 
-//# sourceMappingURL=landing.module.js.map
+//# sourceMappingURL=hikes.module.js.map
 
 /***/ })
 

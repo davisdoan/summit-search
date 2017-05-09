@@ -29,15 +29,17 @@ export class SearchHike {
     public navParams: NavParams,
     public dataService: Data
     ) {
+      
       this.searchControl = new FormControl();
+      this.setFilteredItems();
   }
 
   ionViewDidLoad() {
       this.setFilteredItems();
       this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
-      this.searching = false;
-      this.setFilteredItems();
-    });
+        this.searching = false;
+        this.setFilteredItems();
+      });
     console.log('ionViewDidLoad SearchHike');
   }
   

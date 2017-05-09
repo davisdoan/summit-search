@@ -17,7 +17,12 @@
   
 </ion-header>
 
-
 <ion-content padding>
-  <button ion-button (click)="toSearch()" text-center >Find Hikes</button>
+  <ion-list>
+    <ion-item *ngFor="let favorite of favorites" (click)="viewItem(item)">favorite</ion-item>
+  </ion-list>
+  
+  <button ion-button (click)="toSearch()" text-center >Find Hikes</button>  
+
 </ion-content>
+
