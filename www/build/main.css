@@ -1,7 +1,3 @@
-ion-content {
-  background-image: url("../assets/mountain.jpg");
-}
-
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -24670,8 +24666,35 @@ ion-navbar.toolbar {
   }
 }
 
+page-landing ion-content {
+  background-image: url("../assets/mountain_Landing.jpg") no-repeat fixed center;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+}
+
+page-lobby .arrow {
+  float: right;
+}
+
+page-lobby ion-content {
+  background-image: url("../assets/mountain_Lobby.png");
+}
+
+page-login ion-content {
+  background-image: url("../assets/mountain_Login.jpg");
+}
+
+page-register ion-content {
+  background-image: url("../assets/mountain_Register.jpg");
+}
+
 page-search-hike .spinner-container {
   width: 100%;
   text-align: center;
   padding: 10px;
+}
+
+page-search-hike ion-content {
+  background-image: url("../assets/mountain_Search.jpg");
 }

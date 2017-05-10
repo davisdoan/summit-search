@@ -5,7 +5,6 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Lobby</ion-title>
     <ion-buttons end side="primary">
@@ -14,15 +13,14 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-  
 </ion-header>
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let favorite of favHikes" (click)="viewItem(favorite)">{{favorite.hikeName}}</ion-item>
+    <ion-item *ngFor="let favorite of favHikes" (click)="viewItem(favorite)">{{favorite.hikeName}}  <ion-icon class="arrow" name="md-arrow-dropright"></ion-icon></ion-item>
+    
   </ion-list>
   
   <button ion-button (click)="toSearch()" text-center >Find Hikes</button>  
-
 </ion-content>
 

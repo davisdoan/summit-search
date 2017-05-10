@@ -25,7 +25,6 @@ export class SearchHike {
   searchTerm: string = '';
   searchControl: FormControl;
   hikes: any;
-  hikers: any = [];
   searching: any = false;
 
   constructor(
