@@ -18,6 +18,7 @@ export class HikeResults {
   path: string ="FavoriteHikes/";
   
   save(token, hike){
+    console.log(this.baseUrl + this.path + "?access_token=" + token + JSON.stringify(hike));
     return this.http.post(
       this.baseUrl + this.path +
       '?access_token=' + token,
