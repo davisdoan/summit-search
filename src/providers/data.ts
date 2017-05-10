@@ -46,7 +46,6 @@ export class Data {
                   hikeDistance: '22 Miles',
                   hikeWeather: '33 F',
                   hikeImageUrl: 'https://i.imgur.com/uwziYGV.jpg'
-                  
                 }
       ]
       

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { Landing } from '../landing/landing';
 import { SearchHike } from '../search-hike/search-hike';
-
+import { HikeDetails } from '../hike-details/hike-details';
 import { AppUser } from '../../providers/app-user'; 
 import { Data } from '../../providers/data';
 /**
@@ -17,8 +17,7 @@ import { Data } from '../../providers/data';
   templateUrl: 'lobby.html',
 })
 export class Lobby {
-
-  public items = [1, 2, 3];
+  favHikes: any = [];
 
   constructor(
     public navCtrl: NavController, 
@@ -27,15 +26,10 @@ export class Lobby {
     public modalCtrl: ModalController,
     public dataService: Data
     ) {
-      this.dataService.getData().then((favorites) => {
-      if(favorites) {
-        this.items = JSON.parse(favorites);
-      }
-    });
-      
   }
 
   ionViewDidLoad() {
+    this.favHikes = JSON.parse(window.localStorage.getItem('favHikes')) || [];
     console.log('ionViewDidLoad Lobby');
   }
   
@@ -43,6 +37,7 @@ export class Lobby {
     this.appUser.logout(window.localStorage.token);
     window.localStorage.setItem('token', null);
     window.localStorage.setItem('userId', null);
+    window.localStorage.setItem('favHikes', null);
     this.navCtrl.setRoot(Landing);
   }
   
@@ -51,7 +46,10 @@ export class Lobby {
   }
   
    viewItem(item){
-    console.log("view item works");
+    console.log( "hike chosen " + item.hikeName + "view item works");
+    this.navCtrl.push(HikeDetails, {
+      item: item
+    });
   }
 
 }

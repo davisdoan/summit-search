@@ -20,15 +20,13 @@ export class HikeDetails {
   hikeDistance;
   hikeWeather;
   hikeImageUrl;
+  showSave: boolean = false;
 
-  //public hikes = [];
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public dataService: Data
-    
     ) {
-      
     this.hikeName = this.navParams.get('item').hikeName;
     this.hikeElevation = this.navParams.get('item').hikeElevation;
     this.hikeDistance = this.navParams.get('item').hikeDistance;
@@ -43,17 +41,17 @@ export class HikeDetails {
     this.hikeDistance = this.navParams.get('item').hikeDistance;
     this.hikeWeather = this.navParams.get('item').hikeWeather;
     this.hikeImageUrl = this.navParams.get('item').hikeImageUrl;
+    this.showSave = this.navParams.get("showSave");
   }
   
   thisWorks(){
     console.log("button works");
   }
   
-  saveHike(item){
-    // save hike to list
-    //this.hikes.push(item);
-   
-    this.dataService.save(this.navParams.get('item').hikeName);
+  saveHike(){
+    let favHikes : any = JSON.parse(window.localStorage.getItem("favHikes")) || [];
+    favHikes.push(this.navParams.get('item'));
+    window.localStorage.setItem("favHikes", JSON.stringify(favHikes));
     console.log("save button works for : " + this.hikeName);
     this.navCtrl.setRoot(Lobby);
   }

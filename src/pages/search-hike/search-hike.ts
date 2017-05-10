@@ -67,7 +67,8 @@ export class SearchHike {
   
   viewItem(item){
     this.navCtrl.push(HikeDetails, {
-      item: item
+      item: item,
+      showSave: true
     });
   }
 
