@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Lobby } from '../lobby/lobby';
 import { Data } from '../../providers/data';
+import { HikeResults } from '../../providers/hike-results';
 
 /**
  * Generated class for the HikeDetails page.
@@ -20,18 +21,22 @@ export class HikeDetails {
   hikeDistance;
   hikeWeather;
   hikeImageUrl;
+  hikeId;
   showSave: boolean = false;
-
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public dataService: Data
+    public dataService: Data,
+    public hikeResults: HikeResults
     ) {
     this.hikeName = this.navParams.get('item').hikeName;
     this.hikeElevation = this.navParams.get('item').hikeElevation;
     this.hikeDistance = this.navParams.get('item').hikeDistance;
     this.hikeWeather = this.navParams.get('item').hikeWeather;
     this.hikeImageUrl = this.navParams.get('item').hikeImageUrl;
+    this.hikeId = this.navParams.get('item').id;
+    //let comparisonHikes = window.localStorage.getItem("favHikes");
   }
 
   ionViewDidLoad() {
@@ -41,6 +46,7 @@ export class HikeDetails {
     this.hikeDistance = this.navParams.get('item').hikeDistance;
     this.hikeWeather = this.navParams.get('item').hikeWeather;
     this.hikeImageUrl = this.navParams.get('item').hikeImageUrl;
+    this.hikeId = this.navParams.get('item').id;
     this.showSave = this.navParams.get("showSave");
   }
   
@@ -49,11 +55,18 @@ export class HikeDetails {
   }
   
   saveHike(){
-    let favHikes : any = JSON.parse(window.localStorage.getItem("favHikes")) || [];
-    favHikes.push(this.navParams.get('item'));
-    window.localStorage.setItem("favHikes", JSON.stringify(favHikes));
-    console.log("save button works for : " + this.hikeName);
-    this.navCtrl.setRoot(Lobby);
+      let favHikes : any = JSON.parse(window.localStorage.getItem("favHikes")) || [];
+      let saveHike = {userId: '', hikeId: ''};
+      favHikes.push(this.navParams.get('item'));
+      window.localStorage.setItem("favHikes", JSON.stringify(favHikes));
+      console.log("save button works for : " + this.hikeName + " with id " + this.hikeId);
+      console.log("the token is " + window.localStorage.getItem('token'));
+      console.log("the user id is " + window.localStorage.getItem('userId'));
+      saveHike.userId = window.localStorage.getItem('userId');
+      saveHike.hikeId = this.hikeId;
+    
+      this.hikeResults.save(window.localStorage.getItem('token'), saveHike);
+      this.navCtrl.setRoot(Lobby);
   }
 
 }

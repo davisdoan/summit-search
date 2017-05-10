@@ -20,6 +20,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AppUser } from '../providers/app-user';
 import { Data } from '../providers/data';
 import { Grabhikes } from '../providers/grabhikes';
+import { HikeResults } from '../providers/hike-results';
 
 let injections: any[] = [
   MyApp,
@@ -48,7 +49,8 @@ let injections: any[] = [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AppUser,
     Data,
-    Grabhikes
+    Grabhikes,
+    HikeResults
   ]
 })
 export class AppModule {}
