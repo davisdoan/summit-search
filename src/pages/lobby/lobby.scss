@@ -4,7 +4,16 @@ page-lobby {
     float: right;
 }
 
-ion-content{
-    background-image: url('../assets/mountain_Lobby.png');
+// ion-content{
+//     background-image: url('../assets/mountain_Lobby.png');
+// }
+
+.home-background {
+  //background-image: url('assets/mountain_Landing.jpg');
+  background-image: url('../assets/mountain_Lobby.png');
+  width: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 }

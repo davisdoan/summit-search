@@ -1,5 +1,14 @@
 page-landing {
-ion-content{
-    background-image: url('../assets/mountain_Login.jpg');
+// ion-content{
+//     background-image: url('../assets/mountain_Login.jpg');
+// }
+
+.home-background {
+  //background-image: url('assets/mountain_Landing.jpg');
+  background-image: url('../assets/mountain_Landing.jpg');
+  width: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 }
