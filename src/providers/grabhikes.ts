@@ -24,5 +24,15 @@ export class Grabhikes {
       {}
       );
   }
+  
+  //GET /api/activities/findOne?filter={"where":{"id":1234}}
+  getFavoriteHikes(token){
+    return this.http.get(
+      //this.baseUrl + '/hikes/' + '?filter[where][id]=' + '5918fa9eda001c0ab5d55876',
+      this.baseUrl + '/AppUsers/' + '?filter[include]=FavoriteHikes&filter[where][id]=' + '59112eddad37773740418159',
+      // response keeps returning blank 200, this works in API explorer {"where": {"id": "591393f2d9785c7ee8d4101d"}}
+      {}
+      );
+  }
 
 }

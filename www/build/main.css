@@ -24666,12 +24666,20 @@ ion-navbar.toolbar {
   }
 }
 
+page-hike-details button {
+  width: 100%;
+}
+
 page-landing .home-background {
   background-image: url("../assets/mountain_Landing.jpg");
   width: 100%;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+page-landing button {
+  width: 100%;
 }
 
 page-lobby .arrow {
@@ -24684,6 +24692,10 @@ page-lobby .home-background {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+page-lobby button {
+  width: 100%;
 }
 
 page-login .home-background {

@@ -40,7 +40,7 @@ export class Register {
     .map(res => res.json())
     .subscribe(res => {
       if(res.data == null) {
-        alert("User is offline");
+        //alert("User is offline");
       }
       window.localStorage.setItem('token', res.token);
       window.localStorage.setItem('userId', res.id);
