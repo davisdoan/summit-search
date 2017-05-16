@@ -26,6 +26,7 @@ export class SearchHike {
   searchControl: FormControl;
   hikes: any;
   searching: any = false;
+  
 
   constructor(
     public navCtrl: NavController, 
@@ -33,12 +34,16 @@ export class SearchHike {
     public dataService: Data,
     public hikeGrabber: Grabhikes
     ) {
+       //hikeArray = [];
       this.searchControl = new FormControl();
       hikeGrabber.getHikes('TIJW9U3qLlE0QZyB0BEKe8CslBtAxFhHNHzWmosfqW9ttgNwfmo8mUMIseKx9Kph')
       .map(res => res.json()) //this line takes the response from the server (which is in json stringified form) and turns it into normal json. --John
       .subscribe(res => { //this res is a derivative of the res.json() --John
         hikeList = res;
-        
+        // for(let i=0; i< hikeList.length; i++){
+        //   hikeArray.push(hikeList[i]);
+        //   console.log("current item is " + hikeArray[i]);
+        // }
       console.log(hikeList);
         
       this.setFilteredItems();

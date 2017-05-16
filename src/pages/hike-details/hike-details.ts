@@ -31,28 +31,38 @@ export class HikeDetails {
     public dataService: Data,
     public hikeResults: HikeResults
     ) {
-    this.hikeArray = this.navParams.get('item');
-    this.hikeName = this.hikeArray[0].hikeName;
-    //this.hikeName = this.navParams.get('item').hikeName;
-    this.hikeElevation = this.hikeArray[0].hikeElevation;
-    this.hikeDistance = this.hikeArray[0].hikeDistance;
-    this.hikeWeather = this.hikeArray[0].hikeWeather;
-    this.hikeImageUrl = this.hikeArray[0].hikeImageUrl;
-    this.hikeId = this.hikeArray[0].id;
+    this.showSave = this.navParams.get("showSave");
+    if(!this.showSave){  
+      this.hikeArray = this.navParams.get('item');
+      this.hikeName = this.hikeArray[0].hikeName;
+      //this.hikeName = this.navParams.get('item').hikeName;
+      this.hikeElevation = this.hikeArray[0].hikeElevation;
+      this.hikeDistance = this.hikeArray[0].hikeDistance;
+      this.hikeWeather = this.hikeArray[0].hikeWeather;
+      this.hikeImageUrl = this.hikeArray[0].hikeImageUrl;
+      this.hikeId = this.hikeArray[0].id;
+    } else {
+      this.hikeName = this.navParams.get('item').hikeName;
+      this.hikeElevation = this.navParams.get('item').hikeElevation;
+      this.hikeDistance = this.navParams.get('item').hikeDistance;
+      this.hikeWeather = this.navParams.get('item').hikeWeather;
+      this.hikeImageUrl = this.navParams.get('item').hikeImageUrl;
+      this.hikeId = this.navParams.get('item').id;
+    }
     //let comparisonHikes = window.localStorage.getItem("favHikes");
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HikeDetails');
-    this.hikeArray = this.navParams.get('item');
-    this.hikeName = this.hikeArray[0].hikeName;
+    //this.hikeArray = this.navParams.get('item');
+    //this.hikeName = this.hikeArray[0].hikeName;
     //this.hikeName = this.navParams.get('item').hikeName;
     // this.hikeElevation = this.navParams.get('item').hikeElevation;
     // this.hikeDistance = this.navParams.get('item').hikeDistance;
     // this.hikeWeather = this.navParams.get('item').hikeWeather;
     // this.hikeImageUrl = this.navParams.get('item').hikeImageUrl;
     // this.hikeId = this.navParams.get('item').id;
-    this.showSave = this.navParams.get("showSave");
+    //this.showSave = this.navParams.get("showSave");
   }
   
   thisWorks(){
