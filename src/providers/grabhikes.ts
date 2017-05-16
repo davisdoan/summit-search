@@ -34,5 +34,12 @@ export class Grabhikes {
       {}
       );
   }
+  
+  getHikeDetails(token, hikeId){
+    return this.http.get(
+    this.baseUrl + '/hikes/' + '?filter[where][id]=' + hikeId,
+    {}
+    );
+  }
 
 }

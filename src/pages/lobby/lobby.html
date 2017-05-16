@@ -17,7 +17,7 @@
 
 <ion-content padding class="home-background">
   <ion-list>
-    <ion-item *ngFor="let favorite of favHikes" (click)="viewItem(favorite)">{{favorite.hikeName}}  <ion-icon class="arrow" name="md-arrow-dropright"></ion-icon></ion-item>
+    <ion-item *ngFor="let favorite of hikeDetailsList" (click)="viewItem(favorite)">{{favorite}}  <ion-icon class="arrow" name="md-arrow-dropright"></ion-icon></ion-item>
     
   </ion-list>
   

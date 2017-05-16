@@ -16,6 +16,8 @@ import { Grabhikes } from '../../providers/grabhikes';
 
 let favoriteHikesRes = []; 
 let favHikeIds = [];
+let hikeDetailsList = [];
+let hikeDetail = {};
 @IonicPage()
 @Component({
   selector: 'page-lobby',
@@ -35,6 +37,12 @@ export class Lobby {
     public hikeGrabber: Grabhikes
     ) {
   }
+  
+  showSavedHikes(list){
+    for(let k=0; list.length; k++){
+      console.log("we have the hike details for " + list[k].hikeName);
+    }
+  }
 
   ionViewDidLoad() {
     this.hikeGrabber.getFavoriteHikes(this.userToken)
@@ -47,16 +55,27 @@ export class Lobby {
         favHikeIds.push(favoriteHikesRes[0].FavoriteHikes[i].hikeId);
         console.log("just added in hikdId " + favoriteHikesRes[0].FavoriteHikes[0].hikeId);
       }
+      
+      // just printing out
       for(let j=0; j< favHikeIds.length; j++){
         console.log("The hike ids are " + favHikeIds[j]);
+        this.hikeGrabber.getHikeDetails(this.userToken, favHikeIds[j]).map(res => res.json())
+        .subscribe(res => {
+          hikeDetail = res;
+          console.log("current hike detail is " + hikeDetail[0].hikeName);
+          hikeDetailsList.push(hikeDetail);
+          this.showSavedHikes(hikeDetailsList);
+        });
       }
-    
     }, error => {
       alert("warning" + error);
     }
     );
+    
+    
+    
     //this.favHikes = JSON.parse(window.localStorage.getItem('favHikes')) || [];
-    console.log('ionViewDidLoad Lobby');
+    console.log('ionViewDidLoad Lobby' + hikeDetailsList);
   }
   
    toLogOut() {
@@ -77,5 +96,7 @@ export class Lobby {
       item: item
     });
   }
+  
+  
 
 }
