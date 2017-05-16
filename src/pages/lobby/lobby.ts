@@ -12,11 +12,7 @@ import { Grabhikes } from '../../providers/grabhikes';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
- 
-
 let favoriteHikesRes = []; 
-let favHikeIds = [];
-
 let hikeDetail = {};
 @IonicPage()
 @Component({
@@ -27,7 +23,9 @@ let hikeDetail = {};
 export class Lobby {
   favHikes: any = [];
   userToken = window.localStorage.getItem('token');
+  currUserId = window.localStorage.getItem('userId');
   hikeDetailsList = [];
+  favHikeIds = [];
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -46,39 +44,28 @@ export class Lobby {
 
   ionViewDidLoad() {
     this.hikeDetailsList = [];
-    this.hikeGrabber.getFavoriteHikes(this.userToken)
+    this.favHikeIds = [];
+    this.hikeGrabber.getFavoriteHikes(this.userToken,this.currUserId)
     .map(res => res.json())
     .subscribe(res => {
       favoriteHikesRes = res;
-      //console.log(favoriteHikesRes);
-      //console.log("first item is: " + favoriteHikesRes[0].FavoriteHikes[0].hikeId);
       for(let i=0; i< favoriteHikesRes[0].FavoriteHikes.length; i++){
-        favHikeIds.push(favoriteHikesRes[0].FavoriteHikes[i].hikeId);
+        this.favHikeIds.push(favoriteHikesRes[0].FavoriteHikes[i].hikeId);
         console.log("just added in hikdId " + favoriteHikesRes[0].FavoriteHikes[0].hikeId);
       }
-      
-      // just printing out
-      for(let j=0; j< favHikeIds.length; j++){
-        console.log("The hike ids are " + favHikeIds[j]);
-        this.hikeGrabber.getHikeDetails(this.userToken, favHikeIds[j]).map(res => res.json())
+      for(let j=0; j< this.favHikeIds.length; j++){
+        console.log("The hike ids are " + this.favHikeIds[j]);
+        this.hikeGrabber.getHikeDetails(this.userToken, this.favHikeIds[j]).map(res => res.json())
         .subscribe(res => {
           hikeDetail = res;
           console.log("current hike detail is " + hikeDetail[0].hikeName);
           this.hikeDetailsList.push(hikeDetail);
-          //this.showSavedHikes(hikeDetailsList);
-          // for(let k=0; hikeDetailsList.length; k++){
-          //   console.log("we have the hike details for " + hikeDetailsList[k].hikeName);
-          // }
         });
       }
     }, error => {
       alert("warning" + error);
     }
     );
-    
-    
-    
-    //this.favHikes = JSON.parse(window.localStorage.getItem('favHikes')) || [];
     console.log('ionViewDidLoad Lobby' + this.hikeDetailsList);
   }
   
@@ -100,7 +87,4 @@ export class Lobby {
       item: item
     });
   }
-  
-  
-
 }

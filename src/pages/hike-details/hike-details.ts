@@ -35,7 +35,6 @@ export class HikeDetails {
     if(!this.showSave){  
       this.hikeArray = this.navParams.get('item');
       this.hikeName = this.hikeArray[0].hikeName;
-      //this.hikeName = this.navParams.get('item').hikeName;
       this.hikeElevation = this.hikeArray[0].hikeElevation;
       this.hikeDistance = this.hikeArray[0].hikeDistance;
       this.hikeWeather = this.hikeArray[0].hikeWeather;
@@ -49,20 +48,10 @@ export class HikeDetails {
       this.hikeImageUrl = this.navParams.get('item').hikeImageUrl;
       this.hikeId = this.navParams.get('item').id;
     }
-    //let comparisonHikes = window.localStorage.getItem("favHikes");
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HikeDetails');
-    //this.hikeArray = this.navParams.get('item');
-    //this.hikeName = this.hikeArray[0].hikeName;
-    //this.hikeName = this.navParams.get('item').hikeName;
-    // this.hikeElevation = this.navParams.get('item').hikeElevation;
-    // this.hikeDistance = this.navParams.get('item').hikeDistance;
-    // this.hikeWeather = this.navParams.get('item').hikeWeather;
-    // this.hikeImageUrl = this.navParams.get('item').hikeImageUrl;
-    // this.hikeId = this.navParams.get('item').id;
-    //this.showSave = this.navParams.get("showSave");
   }
   
   thisWorks(){
@@ -89,7 +78,5 @@ export class HikeDetails {
       }, err => {
         console.log("error dude " + err);
       });
-    
   }
-
 }
