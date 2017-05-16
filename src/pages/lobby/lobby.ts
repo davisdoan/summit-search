@@ -51,14 +51,14 @@ export class Lobby {
       favoriteHikesRes = res;
       for(let i=0; i< favoriteHikesRes[0].FavoriteHikes.length; i++){
         this.favHikeIds.push(favoriteHikesRes[0].FavoriteHikes[i].hikeId);
-        console.log("just added in hikdId " + favoriteHikesRes[0].FavoriteHikes[0].hikeId);
+        //console.log("just added in hikdId " + favoriteHikesRes[0].FavoriteHikes[0].hikeId);
       }
       for(let j=0; j< this.favHikeIds.length; j++){
-        console.log("The hike ids are " + this.favHikeIds[j]);
+        //console.log("The hike ids are " + this.favHikeIds[j]);
         this.hikeGrabber.getHikeDetails(this.userToken, this.favHikeIds[j]).map(res => res.json())
         .subscribe(res => {
           hikeDetail = res;
-          console.log("current hike detail is " + hikeDetail[0].hikeName);
+          //console.log("current hike detail is " + hikeDetail[0].hikeName);
           this.hikeDetailsList.push(hikeDetail);
         });
       }
@@ -82,7 +82,7 @@ export class Lobby {
   }
   
    viewItem(item){
-    console.log( "hike chosen " + item.hikeName + "view item works");
+    //console.log( "hike chosen " + item.hikeName + "view item works");
     this.navCtrl.push(HikeDetails, {
       item: item
     });

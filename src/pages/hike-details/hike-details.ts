@@ -59,15 +59,13 @@ export class HikeDetails {
   }
   
   saveHike(){
-      let favHikes : any = JSON.parse(window.localStorage.getItem("favHikes")) || [];
-      let saveHike = {userId: '', hikeId: ''};
-      let token = window.localStorage.getItem('token')
-      favHikes.push(this.navParams.get('item'));
-      window.localStorage.setItem("favHikes", JSON.stringify(favHikes));
-      console.log("save button works for : " + this.hikeName + " with id " + this.hikeId);
-      console.log("the token is " + window.localStorage.getItem('token'));
-      console.log("the user id is " + window.localStorage.getItem('userId'));
+      // local storage stuff
+      // let favHikes : any = JSON.parse(window.localStorage.getItem("favHikes")) || [];
+      // favHikes.push(this.navParams.get('item'));
+      // window.localStorage.setItem("favHikes", JSON.stringify(favHikes));
       
+      let token = window.localStorage.getItem('token')
+      let saveHike = {userId: '', hikeId: ''};
       saveHike.userId = window.localStorage.getItem('userId');
       saveHike.hikeId = this.hikeId;
       
